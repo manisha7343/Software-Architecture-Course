@@ -1,0 +1,28 @@
+PERFORMACE PROBLEM
+------------------
+
+1. Every performance problem is the RESULT OF A QUEUE BUILDING SOMEWERE...
+    > Network socket queue 
+    > DB IO queue 
+    > OS run queue(thread, CPU availible) etc
+
+2. reason for queue buil up 
+    > Inefficint slow processing
+    > Serial resouce access
+    > Limited resouce capacity  
+
+3. capacity principles
+    > Efficiency
+    > concurruncy
+    > capacity
+
+4. Types of latency
+    > 1.Serial request latency
+        > Network latency
+            > Data formate & compression, Persistent Connection, Connection pool, session/Data chaching, SSL session chaching 
+        > Memory latency
+            > avoid memory bloat, weak soft references, multiple smaller process, garbage collection  algorithm      
+
+    > 2. concurrunce request latency
+         
+
