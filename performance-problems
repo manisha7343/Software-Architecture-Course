@@ -22,7 +22,7 @@ PERFORMACE PROBLEM
             > Data formate & compression, Persistent Connection, Connection pool, session/Data chaching, SSL session chaching 
         > Memory latency
             > avoid memory bloat, weak soft references, multiple smaller process, garbage collection  algorithm      
-
+        > Disk latency
     > 2. concurrunce request latency
          
 
