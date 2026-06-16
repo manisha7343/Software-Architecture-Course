@@ -26,6 +26,7 @@ PERFORMACE PROBLEM
             > chaching, use SSD, Asynchronous I/O, DB optimization, Batch Writes 
         > CPU latency
             > Batch/async I/O, single threaded model, thread pool size, multi process in vertual ENV    
+            
     > 2. concurrunce request latency
          
 
