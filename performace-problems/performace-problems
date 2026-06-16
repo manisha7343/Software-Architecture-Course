@@ -6,8 +6,8 @@ PERFORMACE PROBLEM
     > DB IO queue 
     > OS run queue(thread, CPU availible) etc
 
-2. reason for queue buil up 
-    > Inefficint slow processing
+2. reason for queue build-up 
+    > Inefficient slow processing
     > Serial resouce access
     > Limited resouce capacity  
 
@@ -16,13 +16,16 @@ PERFORMACE PROBLEM
     > concurruncy
     > capacity
 
-4. Types of latency
+4. Types of latency & solutions
     > 1.Serial request latency
         > Network latency
             > Data formate & compression, Persistent Connection, Connection pool, session/Data chaching, SSL session chaching 
         > Memory latency
             > avoid memory bloat, weak soft references, multiple smaller process, garbage collection  algorithm      
         > Disk latency
+            > chaching, use SSD, Asynchronous I/O, DB optimization, Batch Writes 
+        > CPU latency
+            > Batch/async I/O, single threaded model, thread pool size, multi process in vertual ENV    
     > 2. concurrunce request latency
          
 
