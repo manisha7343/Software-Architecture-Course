@@ -1,32 +1,119 @@
 PERFORMACE PROBLEM
-------------------
-
+--------------------------------------------------------------------
 1. Every performance problem is the RESULT OF A QUEUE BUILDING SOMEWERE...
     > Network socket queue 
     > DB IO queue 
-    > OS run queue(thread, CPU availible) etc
+    > OS run queue(thread, CPU availible etc.) 
 
+--------------------------------------------------------------------
 2. reason for queue build-up 
     > Inefficient slow processing
     > Serial resouce access
     > Limited resouce capacity  
 
+--------------------------------------------------------------------
 3. capacity principles
     > Efficiency
     > concurruncy
     > capacity
 
+--------------------------------------------------------------------
 4. Types of latency & solutions
-    > 1.Serial request latency
-        > Network latency
-            > Data formate & compression, Persistent Connection, Connection pool, session/Data chaching, SSL session chaching 
-        > Memory latency
-            > avoid memory bloat, weak soft references, multiple smaller process, garbage collection  algorithm      
-        > Disk latency
-            > chaching, use SSD, Asynchronous I/O, DB optimization, Batch Writes 
-        > CPU latency
-            > Batch/async I/O, single threaded model, thread pool size, multi process in vertual ENV    
-            
-    > 2. concurrunce request latency
+
+    > 1. Serial Request Latency
+    - Delay in processing a single request
+
+        > Network Latency
+            - Time taken to transfer data over the network
+            - Causes:
+                * Large payload size
+                * New connection setup
+                * SSL/TLS handshake
+            - Solutions:
+                * Data format optimization & compression
+                * Persistent connections (Keep-Alive)
+                * Connection pooling
+                * Session/Data caching
+                * SSL session caching
+
+        > Memory Latency
+            - Delay due to inefficient memory usage
+            - Causes:
+                * Memory bloat
+                * Frequent garbage collection
+                * Large objects in memory
+            - Solutions:
+                * Avoid memory bloat
+                * Weak/Soft references
+                * Multiple smaller processes
+                * Efficient GC algorithms
+
+        > Disk Latency
+            - Delay while reading/writing data from storage
+            - Causes:
+                * Slow HDD
+                * Frequent disk access
+                * Large DB operations
+            - Solutions:
+                * Caching
+                * SSD storage
+                * Asynchronous I/O
+                * DB optimization
+                * Batch writes
+
+        > CPU Latency
+            - Delay due to CPU processing workload
+            - Causes:
+                * Heavy computations
+                * CPU-intensive tasks
+                * Inefficient thread usage
+            - Solutions:
+                * Batch/Async I/O
+                * Single-threaded event-driven model
+                * Thread pool tuning
+                * Multi-process in virtual/containerized environments
+
+
+    > 2. Concurrent Request Latency
+        > Contention
+            - Multiple requests fighting for the same resource
+            - Examples:
+                * DB connections
+                * CPU cores
+                * Memory
+                * Lock contention (same DB row/resource)
+            - Solution:
+                * Connection pooling
+                * Reduce lock time
+                * Partitioning/Sharding
+                * Scale resources
+
+        > Coherence (Consistency Issues)
+            - Data mismatch between servers/replicas
+            - Example:
+                Server A = ₹900
+                Server B = ₹1000 
+            - Solution:
+                * Replication sync
+                * Consistency protocols
+
+        > Queueing Delay
+            - Requests waiting in line before processing
+            - Example:
+                100 requests, only 10 DB connections
+            - Solution:
+                * Increase capacity
+                * Better load balancing
+                * Async processing
+
+        > Context Switching
+            - CPU switches between multiple tasks/processes
+            - Too much switching adds overhead
+            - Solution:
+                * Optimal thread count
+                * Multi-process architecture
+                * Reduce unnecessary threads
+--------------------------------------------------------------------
+
          
 
