@@ -46,7 +46,7 @@ PERFORMACE PROBLEM
                 * Avoid memory bloat
                 * Weak/Soft references
                 * Multiple smaller processes
-                * Efficient GC algorithms
+                * Efficient GC algorithms 
 
         > Disk Latency
             - Delay while reading/writing data from storage
