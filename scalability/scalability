@@ -65,8 +65,8 @@ Scalability
 
         Primary DB
             ↓
-      Replica 1
-      Replica 2
+        Replica 1
+        Replica 2
 
 6. Specialized Services
     User Service
@@ -75,5 +75,5 @@ Scalability
     Payment Service
     Search Service
     Notification Service
-    
+
 Har service ek specific kaam me expert. 
