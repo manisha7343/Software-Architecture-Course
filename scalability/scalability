@@ -1,5 +1,6 @@
 Scalability
-    - Ability of a system to handle increasing users, requests, or data without major performance loss.
+-----------
+Ability of a system to handle increasing users, requests, or data without major performance loss.
 
 1. Types of Scalability
 
