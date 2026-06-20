@@ -1,0 +1,80 @@
+Scalability
+    - Ability of a system to handle increasing users, requests, or data without major performance loss.
+
+1. Types of Scalability
+
+    > Vertical Scaling (Scale Up)
+        - Increase resources of same server
+        - More CPU, RAM, SSD
+        - Example:
+            4 Cores → 8 Cores
+            16 GB RAM → 32 GB RAM
+
+    > Horizontal Scaling (Scale Out)
+        - Add more servers/machines
+        - Load balancer distributes traffic
+        - Example:
+            Server 1
+                ↓
+            Server 1 + Server 2 + Server 3
+
+2. Scalability Principles
+
+    > Decentralization
+        - Avoid single point of failure
+        - Distribute workload across multiple services/servers
+        - Opposite of tightly coupled monolith
+
+    > Independence
+        - Components should work independently
+        - Failure in one component should not affect others
+
+    > Modularity
+        - Divide system into smaller modules/services
+        - Easier development, testing, maintenance, and scaling
+
+3. Web Layer Replication
+    - Multiple copies of web servers
+    - Handles incoming HTTP requests
+    - Load balancer distributes traffic
+    - Improves availability and scalability
+
+    Example:
+        Load Balancer
+             ↓
+        Web1 Web2 Web3
+
+
+4. Service Layer Replication
+    - Multiple copies of same service/business logic
+    - Handles application processing
+    - Improves throughput and fault tolerance
+
+    Example:
+        User Service 1
+        User Service 2
+        User Service 3        
+
+5. DB Replication
+    - Creating copies of the same database on multiple servers
+    - Primary DB handles writes
+    - Replica DBs receive copied data
+    - Used for high availability, backup, and read scaling
+
+    Example:
+
+        Primary DB
+            ↓
+      Replica 1
+      Replica 2
+
+6 . Specialized Services
+    User Service
+    Contact Service
+    Email Service
+    Payment Service
+    Search Service
+    Notification Service
+
+Har service ek specific kaam me expert. 
+     
