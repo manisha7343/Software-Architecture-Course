@@ -1,80 +1,402 @@
+SYSTEM SCALABILITY
+
+1. Scalability
+
+* Ability of a system to handle increasing users, requests, or data without major performance degradation.
+* Scalability mainly focuses on increasing throughput by adding hardware resources.
+
+---
+
+2. Performance vs Scalability
+
+Performance
+
+* Low Latency
+* High Throughput
+* Concurrency
+
 Scalability
------------
-Ability of a system to handle increasing users, requests, or data without major performance loss.
 
-1. Types of Scalability
+* Ability to increase throughput by adding resources.
+* Can scale UP or DOWN according to load.
 
-    > Vertical Scaling (Scale Up)
-        - Increase resources of same server
-        - More CPU, RAM, SSD
-        - Example:
-            4 Cores → 8 Cores
-            16 GB RAM → 32 GB RAM
+---
 
-    > Horizontal Scaling (Scale Out)
-        - Add more servers/machines
-        - Load balancer distributes traffic
-        - Example:
-            Server 1
-                ↓
-            Server 1 + Server 2 + Server 3
+3. Types of Scalability
 
-2. Scalability Principles
+A. Vertical Scaling (Scale Up)
 
-    > Decentralization
-        - Avoid single point of failure
-        - Distribute workload across multiple services/servers
-        - Opposite of tightly coupled monolith
+* Increase resources of same machine.
+* Add more CPU, RAM, SSD.
+* Easier to implement.
+* Limited scalability.
 
-    > Independence
-        - Components should work independently
-        - Failure in one component should not affect others
+Example:
+4 CPU, 16 GB RAM
+↓
+32 CPU, 256 GB RAM
 
-    > Modularity
-        - Divide system into smaller modules/services
-        - Easier development, testing, maintenance, and scaling
+B. Horizontal Scaling (Scale Out)
 
-3. Web Layer Replication
-    - Multiple copies of web servers
-    - Handles incoming HTTP requests
-    - Load balancer distributes traffic
-    - Improves availability and scalability
+* Add more servers/machines.
+* Load distributed among multiple servers.
+* Harder to implement.
+* Almost unlimited scalability.
 
-    Example:
-        Load Balancer
-             ↓
-        Web1 Web2 Web3
+Example:
+Server 1
+↓
+Server 1 + Server 2 + Server 3
 
+---
 
-4. Service Layer Replication
-    - Multiple copies of same service/business logic
-    - Handles application processing
-    - Improves throughput and fault tolerance
+4. Reverse Proxy
 
-    Example:
-        User Service 1
-        User Service 2
-        User Service 3        
+* Single entry point for clients.
+* Routes requests to backend servers.
+* Can also act as a Load Balancer.
 
-5. DB Replication
-    - Creating copies of the same database on multiple servers
-    - Primary DB handles writes
-    - Replica DBs receive copied data
-    - Used for high availability, backup, and read scaling
+Client
+↓
+Reverse Proxy
+↓
+Multiple Servers
 
-    Example:
+---
 
-        Primary DB
-            ↓
-        Replica 1
-        Replica 2
+5. Scalability Principles
 
-6. Specialized Services
-    User Service
-    Contact Service
-    Email Service
-    Payment Service
-    Search Service
-    Notification Service
+A. Decentralization
 
-Har service ek specific kaam me expert...
+* Avoid monolithic architecture.
+* Distribute workload among multiple workers/services.
+
+B. Independence
+
+* Components should work independently.
+* Maximum concurrent processing.
+* Avoid:
+  • Shared Resources
+  • Shared Mutable Data
+
+C. Modularity
+
+* Divide system into smaller modules/services.
+* Easier maintenance and scaling.
+
+Example:
+User Service
+Catalog Service
+Order Service
+Inventory Service
+
+---
+
+6. Replication
+
+* Creating multiple copies to handle increasing workload.
+
+Types:
+
+A. Stateless Replication
+
+* Only code is replicated.
+* No session/state stored locally.
+* Easier to scale.
+
+B. Stateful Replication
+
+* Code and state both replicated.
+* Sessions stored on servers.
+* More complex.
+
+---
+
+7. Web Replication
+
+A. Stateful Web Replication
+
+* Session stored on web server.
+* Uses Sticky Sessions / Session Affinity.
+* Higher performance.
+* Lower scalability.
+
+B. Stateless Web Replication
+
+* Session stored outside server.
+* Client-side Cookies OR Redis/Memcached.
+* Higher scalability.
+* Slightly higher latency.
+
+---
+
+8. Service Replication
+
+* Multiple instances of same service.
+* Improves scalability and availability.
+
+Example:
+User Service 1
+User Service 2
+User Service 3
+
+---
+
+9. Database Replication
+
+Purpose:
+
+* High Availability
+* Backup
+* Read Scalability
+
+Primary DB
+↓
+Replica DB 1
+↓
+Replica DB 2
+
+---
+
+10. Database Replication Models
+
+A. Master-Slave (Primary-Secondary)
+
+* Primary handles writes.
+* Replicas handle reads.
+
+Asynchronous
+
+* Low write latency.
+* Eventual Consistency.
+* Possible replication lag.
+
+Synchronous
+
+* Strong consistency.
+* Higher write latency.
+
+Advantages:
+
+* High Read Scalability
+* High Availability
+* No Write Conflicts
+
+B. Master-Master
+
+* Multiple nodes can read and write.
+* Bi-directional replication.
+
+Advantages:
+
+* High Availability
+* Read + Write Scalability
+
+Disadvantages:
+
+* Write Conflicts
+* Transaction Ordering Issues
+
+---
+
+11. Specialized Services
+
+* One service for one responsibility.
+* Independent development and deployment.
+* Independent scalability.
+* Independent technology choices.
+
+Examples:
+
+* User Service
+* Order Service
+* Catalog Service
+* Inventory Service
+* Notification Service
+
+---
+
+12. API Gateway / Aggregator
+
+* Single entry point for clients.
+* Routes requests to appropriate services.
+
+Benefits:
+
+* Routing
+* Authentication
+* Security
+* Logging
+
+Client
+↓
+Gateway
+↓
+Services
+
+---
+
+13. Asynchronous Processing
+
+* Tasks processed later through queues.
+* Reduces write load on database.
+* Smooths traffic spikes.
+
+Example:
+Order Request
+↓
+Message Queue
+↓
+Order Processing Service
+
+Benefits:
+
+* Better scalability
+* Better resource utilization
+
+---
+
+14. Caching
+
+* Stores frequently accessed data.
+* Reduces latency.
+* Reduces database load.
+
+Types:
+
+* Browser Cache
+* HTTP Cache
+* Session Cache
+* Object Cache
+* Redis Cache
+* Memcached
+
+---
+
+15. Partitioning
+
+A. Vertical Partitioning
+
+* Split system by functionality.
+* Common in Microservices.
+
+Example:
+User Service → User DB
+Order Service → Order DB
+Catalog Service → Catalog DB
+
+Benefits:
+
+* Independent scaling
+* Better modularity
+
+Challenge:
+
+* No ACID transactions across services.
+* Eventual consistency required.
+
+---
+
+B. Horizontal Partitioning (Sharding)
+
+* Split data across multiple databases.
+
+Example:
+
+Node 1 → IDs 1-100
+Node 2 → IDs 101-200
+Node 3 → IDs 201-300
+
+Benefits:
+
+* Higher scalability
+* Better storage distribution
+
+---
+
+16. Sharding Techniques
+
+A. Range Partitioning
+
+Node 1 → 1-100
+Node 2 → 101-200
+Node 3 → 201-300
+
+Good for:
+
+* Range queries
+
+B. Hash Partitioning
+
+Hash(ID) % N
+
+Good for:
+
+* Even distribution of data
+
+---
+
+17. Routing in Sharding
+
+Methods:
+
+A. Client Library Routing
+
+* Client knows shard location.
+
+B. Router/Proxy Routing
+
+* Request goes to router.
+* Router forwards to correct shard.
+
+---
+
+18. Horizontal Scaling Methods
+
+19. Services
+
+20. Replication
+
+    * Stateful
+    * Stateless
+
+21. Partitioning
+
+    * Vertical Partitioning
+    * Database Partitioning
+
+22. Asynchronous Processing
+
+---
+
+Quick Revision
+
+Vertical Scaling
+= Bigger Server
+
+Horizontal Scaling
+= More Servers
+
+Replication
+= Same Data/Code Copies
+
+Caching
+= Faster Reads
+
+Load Balancer
+= Distributes Requests
+
+Gateway
+= Single Entry Point
+
+Partitioning
+= Split Data
+
+Sharding
+= Horizontal DB Partitioning
+
+Microservices
+= Independent Services
+
+Async Processing
+= Queue Based Processing
