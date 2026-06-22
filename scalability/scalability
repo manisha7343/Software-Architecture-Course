@@ -5,7 +5,7 @@ SYSTEM SCALABILITY
 * Ability of a system to handle increasing users, requests, or data without major performance degradation.
 * Scalability mainly focuses on increasing throughput by adding hardware resources.
 
----
+-----------------------------------------
 
 2. Performance vs Scalability
 
@@ -20,7 +20,7 @@ Scalability
 * Ability to increase throughput by adding resources.
 * Can scale UP or DOWN according to load.
 
----
+--------------------------------------------------
 
 3. Types of Scalability
 
@@ -48,7 +48,7 @@ Server 1
 ↓
 Server 1 + Server 2 + Server 3
 
----
+-----------------------------------------------------------
 
 4. Reverse Proxy
 
@@ -62,7 +62,7 @@ Reverse Proxy
 ↓
 Multiple Servers
 
----
+-----------------------------------------------------------
 
 5. Scalability Principles
 
@@ -90,7 +90,7 @@ Catalog Service
 Order Service
 Inventory Service
 
----
+-----------------------------------
 
 6. Replication
 
@@ -128,7 +128,7 @@ B. Stateless Web Replication
 * Higher scalability.
 * Slightly higher latency.
 
----
+--------------------------------------------------------------
 
 8. Service Replication
 
@@ -140,7 +140,7 @@ User Service 1
 User Service 2
 User Service 3
 
----
+--------------------------------------------------------------
 
 9. Database Replication
 
@@ -156,7 +156,7 @@ Replica DB 1
 ↓
 Replica DB 2
 
----
+--------------------------------------------------------------
 
 10. Database Replication Models
 
@@ -197,7 +197,7 @@ Disadvantages:
 * Write Conflicts
 * Transaction Ordering Issues
 
----
+--------------------------------------------------------------
 
 11. Specialized Services
 
@@ -214,7 +214,7 @@ Examples:
 * Inventory Service
 * Notification Service
 
----
+--------------------------------------------------------------
 
 12. API Gateway / Aggregator
 
@@ -234,7 +234,7 @@ Gateway
 ↓
 Services
 
----
+-----------------------------------------------------------
 
 13. Asynchronous Processing
 
@@ -254,7 +254,7 @@ Benefits:
 * Better scalability
 * Better resource utilization
 
----
+-----------------------------------------------------------
 
 14. Caching
 
@@ -271,7 +271,7 @@ Types:
 * Redis Cache
 * Memcached
 
----
+--------------------------------------------------------------
 
 15. Partitioning
 
@@ -295,7 +295,7 @@ Challenge:
 * No ACID transactions across services.
 * Eventual consistency required.
 
----
+--------------------------------------------------------------
 
 B. Horizontal Partitioning (Sharding)
 
@@ -312,7 +312,7 @@ Benefits:
 * Higher scalability
 * Better storage distribution
 
----
+--------------------------------------------------------------
 
 16. Sharding Techniques
 
@@ -334,7 +334,7 @@ Good for:
 
 * Even distribution of data
 
----
+--------------------------------------------------------------
 
 17. Routing in Sharding
 
@@ -349,7 +349,7 @@ B. Router/Proxy Routing
 * Request goes to router.
 * Router forwards to correct shard.
 
----
+-----------------------------------------------------------
 
 18. Horizontal Scaling Methods
 
@@ -367,7 +367,7 @@ B. Router/Proxy Routing
 
 22. Asynchronous Processing
 
----
+-----------------------------------------------------------
 
 Quick Revision
 
