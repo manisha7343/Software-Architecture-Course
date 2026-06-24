@@ -231,7 +231,7 @@ Failures WILL happen:
 - Datacenter outage
 
 Reliable systems are not systems
-that never fail.
+that never fail
 
 Reliable systems are systems that
-recover quickly and continue working.
+recover quickly and continue working
