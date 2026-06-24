@@ -1,4 +1,237 @@
-Reliability
-------------
+## SYSTEM RELIABILITY
 
-- Ability of a system to keep working correctly for a long time without breaking down.
+1. Why Reliability?
+
+* Large systems have many servers, databases, networks and services.
+* More components = More chances of failure.
+* Failures cannot be completely prevented.
+* Goal is not "No Failures".
+* Goal is "System should continue working even when failures happen".
+
+---
+
+2. Reliability
+
+* Reliability means the system should keep working correctly even if some components fail.
+
+Example:
+Payment Service crashes
+↓
+Rest of application continues working
+
+Reliable System:
+Some failures occur
+↓
+Users can still use the system
+
+---
+
+3. Availability vs Reliability
+
+Availability:
+"Can users access the system?"
+
+Reliability:
+"Is the system working correctly?"
+
+Example:
+
+Website opens
+But shows wrong account balance
+
+Availability = YES
+Reliability = NO
+
+---
+
+4. Fault Tolerance
+
+Problem:
+Failures are unavoidable
+
+Solution:
+Detect failure
+Handle failure
+Recover automatically
+
+This ability is called Fault Tolerance.
+
+Example:
+
+Server crashes
+↓
+Backup server starts automatically
+↓
+Users continue working
+
+---
+
+5. Redundancy
+
+Problem:
+What if an important component fails?
+
+Solution:
+Keep backup copies.
+
+Example:
+
+Load Balancer
+↓
+Server-1
+Server-2
+
+If Server-1 dies
+Server-2 continues serving users
+
+Redundancy = Extra backup capacity
+
+---
+
+6. Types of Redundancy
+
+Hot Redundancy
+- All servers are already running
+- Fastest recovery
+- Expensive
+
+Warm Redundancy
+- Backup server is ready
+- Starts working after failure
+- Moderate cost
+
+Cold Redundancy
+- Only backups exist
+- Must start manually/recover
+- Cheapest but slowest recovery
+
+---
+
+7. Single Point Of Failure (SPOF)
+
+Problem:
+
+Only one component exists.
+
+Example:
+
+Users
+↓
+Load Balancer
+↓
+Server
+
+If Load Balancer dies
+Entire system dies
+
+Solution:
+Add redundancy
+
+Never trust a single critical component.
+
+---
+
+8. Failure Detection
+
+Question:
+How will system know something failed?
+
+Methods:
+
+Health Checks
+- Ask service periodically
+- "Are you healthy?"
+
+Heartbeats
+- Service says periodically
+- "I am alive"
+
+Monitoring
+- Watch CPU, Memory, Errors,
+Response Time, Disk usage
+
+---
+
+9. Recovery
+
+After detecting failure:
+
+Stateless Recovery
+- Kill bad instance
+- Start new instance
+
+Example:
+Web server crashes
+↓
+Launch new server
+
+Stateful Recovery
+- Recover state/data first
+
+Example:
+Database failure
+↓
+Restore data
+↓
+Resume service
+
+---
+
+10. Database Recovery
+
+Hot Standby
+- Synchronous replica
+- No data loss
+- Almost instant failover
+
+Warm Standby
+- Asynchronous replica
+- Some lag possible
+- Faster normal performance
+
+Cold Recovery
+- Restore from backups
+- Long downtime
+
+---
+
+11. Stability Patterns
+
+Timeout
+- Stop waiting forever
+
+Retry
+- Try again if failure is temporary
+
+Circuit Breaker
+- Stop calling failing service
+
+Fail Fast
+- Return error immediately
+
+Shed Load
+- Reject extra traffic
+
+Back Pressure
+- Slow down request producers
+
+Goal:
+Prevent one failure from causing
+system-wide failure.
+
+---
+
+12. Reliability Mindset
+
+Failures WILL happen:
+- Server crash
+- Network failure
+- Database issue
+- Software bugs
+- Datacenter outage
+
+Reliable systems are not systems
+that never fail.
+
+Reliable systems are systems that
+recover quickly and continue working.
