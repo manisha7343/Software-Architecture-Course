@@ -1,2 +1,160 @@
-Security 
---------
+SYSTEM SECURITY (PART-1)
+
+---
+
+1. Why Security?
+
+Problem:
+Internet par koi bhi system ko attack kar sakta hai.
+
+Need:
+Protect users, data and services from unauthorized access.
+
+Goal:
+Keep data Safe, Correct and Available.
+
+---
+
+2. CIA Triad
+
+Confidentiality
+- Only authorized users should access data.
+- Achieved using Encryption & Authentication.
+
+Integrity
+- Data should not be modified without permission.
+- Achieved using Hashing & Digital Signature.
+
+Availability
+- System should be available whenever users need it.
+- Achieved using Replication, Load Balancer & Backups.
+
+---
+
+3. Authentication vs Authorization
+
+Authentication
+- Verifies who the user is.
+- Example: Login using Email & Password.
+
+Authorization
+- Decides what the user can access after login.
+- Example: Admin can delete users, normal user cannot.
+
+Easy Trick:
+Authentication = Identity
+Authorization = Permission
+
+---
+
+4. Encryption
+
+Problem:
+Plain text can be read by anyone.
+
+Solution:
+Convert readable data into unreadable form.
+
+Goal:
+Protect Confidentiality.
+
+---
+
+5. Symmetric Encryption
+
+   * Same key is used to Encrypt and Decrypt.
+   * Faster but key sharing is difficult.
+
+Examples:
+AES, DES
+
+Think:
+One key for one lock.
+
+---
+
+6. Asymmetric Encryption
+
+   * Uses two keys (Public & Private).
+   * Public Key encrypts, Private Key decrypts.
+   * More secure but slower.
+
+Examples:
+RSA, ECC
+
+Think:
+Public Lock + Private Key.
+
+---
+
+7. Why HTTPS uses Both?
+
+RSA
+- Securely shares the secret key.
+
+AES
+- Encrypts actual communication faster.
+
+Think:
+RSA starts the conversation,
+AES continues it.
+
+---
+
+8. Hashing
+
+   * Converts data into a fixed-size hash.
+   * One-way function (cannot be reversed).
+   * Mainly used for Password Storage & Integrity.
+
+Examples:
+SHA-256, SHA-512
+
+Think:
+Fingerprint of data.
+
+---
+
+9. Digital Signature
+
+   * Proves who sent the data.
+   * Also verifies data wasn't changed.
+
+Think:
+Digital version of your signature.
+
+---
+
+10. Digital Certificate
+
+    * Verifies that a website's Public Key is genuine.
+    * Issued by a trusted Certificate Authority (CA).
+
+Think:
+Identity Card of a website.
+
+---
+
+11. SSL / TLS
+
+    * Encrypts communication between client and server.
+    * Prevents hackers from reading data.
+
+Note:
+SSL is old, TLS is the modern version.
+
+---
+
+12. HTTPS
+
+HTTP
+- No encryption.
+- Data can be intercepted.
+
+HTTPS
+- Uses TLS encryption.
+- Data travels securely.
+
+Think:
+HTTP = Open Road
+HTTPS = Secure Tunnel
