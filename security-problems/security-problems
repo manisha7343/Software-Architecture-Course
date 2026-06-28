@@ -158,3 +158,146 @@ HTTPS
 Think:
 HTTP = Open Road
 HTTPS = Secure Tunnel
+
+SYSTEM SECURITY (PART-2)
+
+---
+
+13. Firewall
+
+Problem:
+Anyone on the Internet can try to access your server.
+
+Solution:
+Firewall filters incoming and outgoing traffic.
+
+Goal:
+Allow trusted requests, block malicious ones.
+
+Think:
+Security Guard of a building.
+
+---
+
+14. Identity Management
+
+    * Manages user identities.
+    * Stores user accounts, passwords and roles.
+    * Used for Login and Access Control.
+
+Examples:
+Active Directory
+LDAP
+
+---
+
+15. Credential Transfer
+
+Problem:
+Username & Password travel over network.
+
+Solution:
+Always transfer credentials over HTTPS.
+
+Never send credentials using plain HTTP.
+
+---
+
+16. Credential Storage
+
+Never store passwords as plain text.
+
+Instead:
+Password
+↓
+Hash + Salt
+↓
+Store in Database
+
+Goal:
+Protect passwords even if DB leaks.
+
+---
+
+17. Session Management
+
+After login,
+server remembers the user using Session ID.
+
+User
+↓
+Login
+↓
+Session Created
+
+Used in:
+Stateful Authentication.
+
+---
+
+18. Cookies
+
+    * Small data stored in browser.
+    * Sent automatically with every request.
+
+Uses:
+Session ID
+Remember Login
+Preferences
+
+Think:
+Browser's small notebook.
+
+---
+
+19. Stateful Authentication
+
+    * Server stores user session.
+    * Every request checks session.
+
+Advantages:
+Easy to implement.
+
+Problem:
+Harder to scale.
+
+---
+
+20. Stateless Authentication
+
+    * Server stores nothing.
+    * Client sends Token with every request.
+
+Advantages:
+Easy Horizontal Scaling.
+
+Examples:
+JWT
+
+Think:
+Every request carries identity.
+
+---
+
+21. API Key
+
+    * Unique key used to identify an application.
+    * Mainly used for Server-to-Server communication.
+    * Not meant for user login.
+
+---
+
+Quick Revision
+
+Firewall = Security Guard
+
+Cookies = Browser Storage
+
+Session = User Login Memory
+
+Stateful = Server remembers user
+
+Stateless = Token remembers user
+
+API Key = Application Identity
+
