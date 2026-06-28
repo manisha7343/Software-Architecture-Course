@@ -1,2 +1,280 @@
+## SYSTEM DEPLOYMENT
+
+1. Deployment
+
+Problem:
+Code bana liya, ab users tak kaise pahunchaye?
+
 Deployment
-----------
+- Process of making an application available for users.
+- Not a one-time task (updates, bug fixes, new versions continue).
+
+Think:
+Writing code ≠ Users can use it.
+Deployment makes the app live.
+
+---
+
+2. Types of Deployment
+
+A. Application Deployment
+- Deploy application code.
+- Web App, Services, Database, Cache etc.
+
+B. Infrastructure Deployment
+- Prepare servers, network, storage and cloud resources.
+
+C. Operations
+- Monitor, upgrade, rollback, logging and maintenance.
+
+Think:
+Code + Servers + Maintenance
+
+---
+
+3. Component Deployment
+
+Problem:
+Installing software manually is repetitive.
+
+Solution:
+Install OS → JVM → Web Server → Deploy App
+
+Issue:
+Manual deployment is slow and error-prone.
+
+---
+
+4. Deployment Automation
+
+Problem:
+Manual deployment causes mistakes.
+
+Solution:
+Use scripts/tools to automate deployment.
+
+Benefits:
+- Faster
+- Repeatable
+- Reliable
+
+Examples:
+Bash
+Ansible
+Chef
+
+---
+
+5. Virtual Machine (VM)
+
+Idea:
+One physical machine can run multiple virtual computers.
+
+Advantages:
+- Strong isolation
+- Reliable
+
+Problem:
+Heavy because each VM has its own OS.
+
+Think:
+Computer inside another computer.
+
+---
+
+6. Docker Container
+
+Problem:
+VM is heavy.
+
+Solution:
+Share host OS and package only application.
+
+Advantages:
+- Lightweight
+- Fast startup
+- Portable
+
+Think:
+App + Dependencies packed together.
+
+---
+
+7. Docker Image
+
+   * Blueprint/template of a container.
+   * Container is created from an Image.
+
+Think:
+Image = Recipe
+Container = Running Dish
+
+---
+
+8. Cloud Deployment
+
+Instead of buying servers,
+rent them from cloud providers.
+
+Examples:
+AWS
+Azure
+Google Cloud
+
+Benefits:
+- Easy Scaling
+- Pay as you use
+- Global Availability
+
+---
+
+9. Kubernetes
+
+Problem:
+Managing hundreds of containers manually.
+
+Solution:
+Kubernetes automates container management.
+
+Responsibilities:
+- Start/Stop Containers
+- Restart Failed Containers
+- Load Balancing
+- Auto Scaling
+- Health Checks
+
+Think:
+Manager of Docker Containers.
+
+---
+
+10. Pod
+
+    * Smallest deployable unit in Kubernetes.
+    * Usually contains one container.
+
+Think:
+Pod = Home of a Container.
+
+---
+
+11. Rolling Deployment
+
+Idea:
+Replace old version slowly.
+
+V1 → V2 → V2 → V2
+
+Advantages:
+- No downtime
+- Safe updates
+
+---
+
+12. Canary Deployment
+
+Idea:
+Release new version to few users first.
+
+If successful,
+release to everyone.
+
+Advantages:
+- Detect bugs early
+- Low Risk
+
+Think:
+Trial Release.
+
+---
+
+13. Recreate Deployment
+
+Idea:
+Stop old version first,
+then start new version.
+
+Advantages:
+- Simple
+
+Problem:
+Causes downtime.
+
+---
+
+14. Blue-Green Deployment
+
+Idea:
+Two identical environments.
+
+Blue = Old Version
+Green = New Version
+
+Switch traffic instantly.
+
+Advantages:
+- Almost Zero Downtime
+- Quick Rollback
+
+Problem:
+Extra Infrastructure Cost.
+
+Think:
+One switch changes everything.
+
+---
+
+15. A/B Testing
+
+Idea:
+Different users see different versions.
+
+Goal:
+Compare user behaviour.
+
+Example:
+
+User A → Button Blue
+
+User B → Button Green
+
+Measure:
+Click Rate
+Conversion Rate
+
+---
+
+FINAL REVISION
+
+Deployment
+= Make application live
+
+VM
+= Virtual Computer
+
+Docker
+= Lightweight App Package
+
+Image
+= Blueprint
+
+Container
+= Running Image
+
+Kubernetes
+= Container Manager
+
+Rolling
+= Gradual Update
+
+Canary
+= Few Users First
+
+Recreate
+= Stop Old → Start New
+
+Blue-Green
+= Two Environments
+
+A/B Testing
+= Compare User Behaviour
