@@ -301,3 +301,135 @@ Stateless = Token remembers user
 
 API Key = Application Identity
 
+SYSTEM SECURITY (PART-3)
+
+---
+
+22. OAuth 2.0
+
+Problem:
+Don't share user's password with third-party apps.
+
+Solution:
+Give limited access using Access Tokens.
+
+Example:
+
+Login with Google
+
+---
+
+23. Authorization Code Flow
+
+Best and most secure OAuth flow.
+
+Steps:
+
+User Login
+↓
+Authorization Code
+↓
+Access Token
+
+Used by:
+Web Applications
+
+---
+
+24. Client Credentials Flow
+
+No user involved.
+
+Application authenticates itself.
+
+Used for:
+Service-to-Service communication.
+
+---
+
+25. Password Flow
+
+User directly sends username & password.
+
+Simple,
+but less secure.
+
+Rarely recommended today.
+
+---
+
+26. Bearer Token
+
+Whoever has the token,
+can access resources.
+
+Problem:
+If stolen,
+attacker can use it.
+
+Always use HTTPS.
+
+---
+
+27. Refresh Token
+
+Problem:
+Access Tokens expire quickly.
+
+Solution:
+Refresh Token generates new Access Token.
+
+Benefits:
+Better security
+Better user experience
+
+---
+
+28. JWT (JSON Web Token)
+
+Self-contained authentication token.
+
+Contains:
+User ID
+Role
+Expiry Time
+
+Advantages:
+No Session Storage
+Good for Stateless Authentication
+
+Think:
+Digital Identity Card.
+
+---
+
+29. Single Sign-On (SSO)
+
+Login once.
+
+Access multiple applications.
+
+Examples:
+
+Google Login
+
+Microsoft Login
+
+Think:
+One Login,
+Many Applications.
+
+---
+
+Quick Revision
+
+OAuth = Secure Permission Sharing
+
+JWT = Digital Identity Card
+
+Bearer Token = Access Token
+
+Refresh Token = Get New Token
+
+SSO = Login Once
+
