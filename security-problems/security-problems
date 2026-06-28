@@ -433,3 +433,135 @@ Refresh Token = Get New Token
 
 SSO = Login Once
 
+SYSTEM SECURITY (PART-4)
+
+---
+
+30. SQL Injection
+
+Problem:
+Attacker injects SQL commands.
+
+Goal:
+Read, Modify or Delete Database.
+
+Solution:
+Prepared Statements
+Parameterized Queries
+
+---
+
+31. Cross Site Scripting (XSS)
+
+Problem:
+Attacker injects JavaScript into webpages.
+
+Goal:
+Steal Cookies
+Steal User Data
+
+Solution:
+Input Validation
+Output Encoding
+
+---
+
+32. Cross Site Request Forgery (CSRF)
+
+Problem:
+Tricks logged-in user into sending unwanted requests.
+
+Solution:
+CSRF Tokens
+SameSite Cookies
+
+---
+
+33. Password Hashing
+
+Never Encrypt Passwords.
+
+Always Hash Passwords.
+
+Use:
+Salt
+Strong Hash Algorithm
+
+Examples:
+bcrypt
+Argon2
+
+---
+
+34. Encryption At Rest
+
+Protect stored data.
+
+Examples:
+Database Encryption
+Disk Encryption
+
+---
+
+35. Encryption In Transit
+
+Protect data while travelling.
+
+Examples:
+HTTPS
+TLS
+
+---
+
+36. Security Best Practices
+
+    * Always use HTTPS
+    * Never store plain passwords
+    * Use Strong Authentication
+    * Validate User Input
+    * Use Least Privilege Principle
+    * Keep Software Updated
+    * Monitor Logs
+    * Take Regular Backups
+
+---
+
+FINAL REVISION
+
+CIA
+= Confidentiality
+= Integrity
+= Availability
+
+Authentication
+= Who are you?
+
+Authorization
+= What can you access?
+
+Encryption
+= Hide Data
+
+Hashing
+= Protect Passwords
+
+JWT
+= Stateless Identity
+
+OAuth
+= Secure Permission Sharing
+
+Firewall
+= Traffic Filter
+
+HTTPS
+= Secure Communication
+
+SQL Injection
+= SQL Attack
+
+XSS
+= JavaScript Attack
+
+CSRF
+= Fake Request Attack
